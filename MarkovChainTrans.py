@@ -11,7 +11,6 @@ def dicoGen():
             text = text.replace(l, ' ')
 
     arr = text.split()
-    arr.reverse()
     p = '.-!?'
     for i in range(len(arr)-1):
         if arr[i][len(arr[i])-1] in p and len(arr[i])-1>0:
@@ -24,11 +23,11 @@ def dicoGen():
     return dico
 
 def tokenize():
+    print('tokenizing...')
     f = open(r'C:\Users\ALLARASSEMJJ20\Achilles\poem.txt', encoding = 'utf-8')
     text = f.read()
     arr = text.split()
-    arr.reverse()
-    p = ',.!;'
+    p = ',.!;“”'
     c = 0
     var = len(arr)
     while(True):
@@ -43,6 +42,7 @@ def tokenize():
     return arr
 
 def matrix(arr):
+    print('transition matrix...')
     i = 0
     j = 0
     M = [[0]*len(arr) for _ in range(len(arr))]
@@ -68,17 +68,19 @@ def rhymes(arr):
     return array
 
 def normalization(state):
+    print('normalizing...')
     for i in range(len(state)):
         state[i] = state[i]/sum(state)
     return state
 
 def next_State(initial_State, matrix):
     state = initial_State
-    state = np.matmul(matrix, state)
+    state = np.matmul(state, matrix)
     state = normalization(state)
     return state
 
 def proba_to_words(state):
+    print('converting...')
     sum = 0
     index = 0
     p = np.random.rand()
@@ -89,8 +91,8 @@ def proba_to_words(state):
             break
     return tokenize()[index]
 
-ini =[1/15*1 for _ in range(15)]
+ini =[1/len(tokenize())*1 for _ in range(len(tokenize()))]
 sentence = ''
-for i in range(10):
+for i in range(5):
     sentence = sentence + ' ' + proba_to_words(next_State(ini,matrix(tokenize())))
 print(sentence)
