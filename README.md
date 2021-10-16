@@ -1,2 +1,2 @@
-# Poetry_Generator
+# Poetry Generator
 This program is an attempt to generate poetry using machine learning techniques
