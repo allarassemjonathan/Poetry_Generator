@@ -3,8 +3,9 @@
 Learn the distribution of sequences of words through a Monte Carlo method. Throw the dice and randomly select sequences of words to generate text. I am working on ways to give a score for plagiarism in order to assess how much of the content is copy pasted and how much is creative work.
 There is still a lot of work remaining but I already have ideas to improve both the quality and the amount of plagiarism in the poems. I am also working on rhymes and already have the outline of a solution. I just need to code it. 
 
+Example of poem:
 
-To love is to share to listen and care in tender affectionate ways .
+To love is to share to listen and care in tender affectionate ways <br>
 To you
 I give the whole me
 For
